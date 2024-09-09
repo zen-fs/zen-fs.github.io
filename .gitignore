@@ -3,3 +3,4 @@ tmp
 dist
 build
 .astro
+src/env.d.ts
