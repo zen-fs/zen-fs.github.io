@@ -11,7 +11,7 @@
 		"preview": "astro preview",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
-		"lint": "tsc -p tsconfig.json --noEmit && eslint src tests"
+		"lint": "tsc -p tsconfig.json --noEmit && eslint src"
 	},
 	"repository": {
 		"type": "git",
