@@ -10,7 +10,7 @@ on:
 jobs:
     ci:
         name: CI
-        runs-on: ${{ inputs.platform }}
+        runs-on: ubuntu-latest
         defaults:
             run:
                 shell: bash
