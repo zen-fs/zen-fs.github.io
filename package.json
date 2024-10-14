@@ -17,7 +17,7 @@
 		"type": "git",
 		"url": "git+https://github.com/zen-fs/website.git"
 	},
-	"author": "James Prevett <jp@jamespre.dev>",
+	"author": "James Prevett <jp@jamespre.dev> (https://jamespre.dev)",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/zen-fs/website/issues"
