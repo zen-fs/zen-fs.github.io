@@ -1,38 +1,38 @@
 {
-  "name": "zenfs.dev",
-  "type": "module",
-  "version": "1.0.0",
-  "description": "The website for ZenFS",
-  "main": "index.js",
-  "scripts": {
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zen-fs/website.git"
-  },
-  "author": "James Prevett <jp@jamespre.dev> (https://jamespre.dev)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/zen-fs/website/issues"
-  },
-  "homepage": "https://github.com/zen-fs/website#readme",
-  "devDependencies": {
-    "@zenfs/core": "^2.0.0",
-    "@zenfs/dom": "^1.0.6",
-    "eslint": "^9.10.0",
-    "prettier": "^3.3.3",
-    "typescript": "^6.0.0",
-    "typescript-eslint": "^8.58.0",
-    "vite": "^5.4.10"
-  },
-  "prettier": {
-    "singleQuote": true,
-    "useTabs": true,
-    "trailingComma": "es5",
-    "tabWidth": 4,
-    "printWidth": 180,
-    "arrowParens": "avoid"
-  }
+	"name": "zenfs.dev",
+	"type": "module",
+	"version": "1.0.0",
+	"description": "The website for ZenFS",
+	"main": "index.js",
+	"scripts": {
+		"format": "prettier --write .",
+		"format:check": "prettier --check ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/zen-fs/website.git"
+	},
+	"author": "James Prevett <jp@jamespre.dev> (https://jamespre.dev)",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/zen-fs/website/issues"
+	},
+	"homepage": "https://github.com/zen-fs/website#readme",
+	"devDependencies": {
+		"@zenfs/core": "^2.0.0",
+		"@zenfs/dom": "^1.0.6",
+		"eslint": "^9.10.0",
+		"prettier": "^3.3.3",
+		"typescript": "^6.0.0",
+		"typescript-eslint": "^8.58.0",
+		"vite": "^5.4.10"
+	},
+	"prettier": {
+		"singleQuote": true,
+		"useTabs": true,
+		"trailingComma": "es5",
+		"tabWidth": 4,
+		"printWidth": 180,
+		"arrowParens": "avoid"
+	}
 }
