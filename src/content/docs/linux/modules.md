@@ -53,7 +53,7 @@ await example.init();
 ```
 
 If `init` throws, the module is torn down and the error is rethrown, so a failed load doesn't leave a half-registered module behind.
-That only covers the module's own bookkeeping though — whatever `init` had already registered before it threw is still registered, so `init` needs to clean up after itself:
+That only covers the module's own bookkeeping though; whatever `init` had already registered before it threw is still registered, so `init` needs to clean up after itself:
 
 ```ts
 init() {
@@ -75,6 +75,8 @@ Modules are `AsyncDisposable`, so `await using` works if the lifetime is scoped:
 await using example = new Module({ name: 'example' });
 await example.init();
 ```
+
+This only works if the module actually reaches `live` though, since `dispose()` without `force` is used.
 
 Note the constructor throws `EINVAL` without a name and `EEXIST` if a module by that name already exists,
 and that `dispose` frees the name and tears down the sysfs entries.
