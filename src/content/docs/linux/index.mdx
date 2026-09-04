@@ -1,0 +1,35 @@
+---
+title: '@zenfs/linux'
+description: Best-effort Linux emulation with ZenFS. Includes processes, /dev, /sys, /proc, and kernel modules.
+---
+
+import Version from '../../../components/Version.astro';
+
+A best-effort emulation of Linux-specific behavior for ZenFS.
+
+```sh
+npm install @zenfs/linux
+```
+
+<Version pkg="linux" />
+
+:::note
+This is still being developed and the API is not completely stable yet.
+:::
+
+## Kernel modules
+
+The foundational part of `@zenfs/linux` is its kernel module API. Modules are loaded with `init` and
+unloaded with `dispose`, and can depend on each other.
+
+See [Writing a module](/guides/linux-modules/) for the guide.
+
+## Filesystems
+
+The following filesystems are provided:
+
+- sysfs, `/sys`
+- debugfs, `/sys/kernel/debug` (work in progress)
+- configfs, `/sys/kernel/config` (work in progress)
+- procfs, `/proc`
+- devtmpfs, `/dev`

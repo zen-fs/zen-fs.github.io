@@ -1,0 +1,42 @@
+---
+title: '@zenfs/archives'
+description: Read-only ZenFS backends for archive files. Currently supports .zip, .iso, and .tar.
+---
+
+import Version from '../../../components/Version.astro';
+
+Backends for archive files. These create _readonly_ file systems.
+
+```sh
+npm install @zenfs/archives
+```
+
+<Version pkg="archives" />
+
+## Backends
+
+| Backend | Description                                                                                              |
+| ------- | -------------------------------------------------------------------------------------------------------- |
+| `Zip`   | `.zip` files (PK Zip).                                                                                   |
+| `Iso`   | `.iso` files (ISO 9660).                                                                                 |
+| `Tar`   | `.tar` files. POSIX/USTAR is the most compatible, though gnu/oldgnu format tar files are also supported. |
+
+## Usage
+
+Archive backends take the archive's contents as their `data` option:
+
+```js
+import { configure } from '@zenfs/core';
+import { Zip } from '@zenfs/archives';
+
+const res = await fetch('mydata.zip');
+
+await configure({
+	mounts: {
+		'/mnt/zip': { backend: Zip, data: await res.arrayBuffer() },
+	},
+});
+```
+
+To mount an archive at runtime rather than during configuration, see
+[Using ZenFS](/guides/using-zenfs/#mounting-and-unmounting-creating-backends).

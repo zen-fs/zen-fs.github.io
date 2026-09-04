@@ -1,0 +1,68 @@
+/* SPDX-License-Identifier: LGPL-3.0-or-later */
+/* Pulled from @axium/client */
+
+@property --hue {
+	syntax: '<number>|<angle>';
+	inherits: true;
+	initial-value: 240deg;
+}
+
+@property --fg-light {
+	syntax: '<percentage>';
+	inherits: true;
+	initial-value: 73%;
+}
+
+@property --bg-light {
+	syntax: '<percentage>';
+	inherits: true;
+	initial-value: 13.3%;
+}
+
+@property --light-step {
+	syntax: '<percentage>';
+	inherits: true;
+	initial-value: 6.6%;
+}
+
+@property --bg-light-status {
+	syntax: '<percentage>';
+	inherits: true;
+	initial-value: 33%;
+}
+
+/* html is used so themes can use :root to override these if needed */
+html {
+	--bg-normal: hsl(0 0 var(--bg-light));
+	--bg-menu: hsl(0 0 calc(var(--bg-light) - var(--light-step)));
+	--bg-accent: hsl(var(--hue) 15 calc(var(--bg-light) + (var(--light-step) * 2)));
+	--bg-alt: hsl(var(--hue) 5 calc(var(--bg-light) + var(--light-step)));
+	--bg-strong: hsl(var(--hue) 20 calc(var(--bg-light) + var(--light-step)));
+	--bg-elevated: hsl(from var(--bg-menu) h s l / 95%);
+	--bg-danger: hsl(from var(--bg-strong) 0 s l);
+
+	--bg-error: hsl(0 40 var(--bg-light-status));
+	--bg-warning: hsl(60 40 var(--bg-light-status));
+	--bg-success: hsl(120 40 var(--bg-light-status));
+
+	--fg-normal: hsl(0 0 var(--fg-light));
+	--fg-accent: hsl(var(--hue) 15 var(--fg-light));
+	--fg-strong: hsl(var(--hue) 25 calc(var(--fg-light) - var(--light-step)));
+	--fg-disabled: hsl(0 0 calc(var(--fg-light) - var(--light-step)));
+	--fg-danger: hsl(0 33 var(--fg-light));
+
+	--fg-error: hsl(0 50 calc(var(--fg-light) - var(--light-step)));
+	--fg-warning: hsl(60 50 calc(var(--fg-light) - var(--light-step)));
+
+	--green: hsl(140 50 50);
+
+	--border-disabled: 1px solid hsl(0 5 calc(var(--bg-light) - var(--light-step)));
+	--border-accent: 1px solid hsl(var(--hue) 10 calc(var(--bg-light) + (var(--light-step) * 3)));
+	--border-alt: 1px solid var(--bg-alt);
+	--border-strong: 1px solid hsl(var(--hue) 20 calc(var(--bg-light) + (var(--light-step) * 3)));
+	--border-elevated: 1px solid hsl(var(--hue) 10 calc(var(--fg-light) - var(--light-step)));
+
+	--border-error: 1px solid hsl(0 50 var(--fg-light));
+	--border-warning: 1px solid hsl(60 50 var(--fg-light));
+	--border-success: 1px solid hsl(120 50 var(--fg-light));
+}

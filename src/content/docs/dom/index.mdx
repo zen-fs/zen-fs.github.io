@@ -1,0 +1,44 @@
+---
+title: '@zenfs/dom'
+description: ZenFS backends built on DOM APIs. OPFS, IndexedDB, localStorage, and the DOM itself.
+---
+
+import Version from '../../../components/Version.astro';
+
+Backends for DOM APIs. These are only available natively in browsers.
+
+```sh
+npm install @zenfs/dom
+```
+
+<Version pkg="dom" />
+
+## Backends
+
+| Backend      | Description                                                                                               |
+| ------------ | --------------------------------------------------------------------------------------------------------- |
+| `WebAccess`  | Uses the [File System Access API](https://developer.mozilla.org/Web/API/File_System_API), including OPFS. |
+| `IndexedDB`  | Stores files in an `IndexedDB` object database.                                                           |
+| `WebStorage` | Stores files in a `Storage` object, like `localStorage` and `sessionStorage`.                             |
+| `XML`        | Uses an `XMLDocument` to store files, which can be appended to the DOM.                                   |
+
+## Usage
+
+You can use the backends from `@zenfs/dom` just like the backends from `@zenfs/core`:
+
+```js
+import { configureSingle, fs } from '@zenfs/core';
+import { WebStorage } from '@zenfs/dom';
+
+await configureSingle({ backend: WebStorage, storage: localStorage });
+
+if (!fs.existsSync('/test.txt')) {
+	fs.writeFileSync('/test.txt', 'This will persist across reloads!');
+}
+
+const contents = fs.readFileSync('/test.txt', 'utf-8');
+console.log(contents);
+```
+
+See [Using ZenFS](/guides/using-zenfs/) for mounting several backends at once, and the
+[reference](/dom/reference/) for every option each backend accepts.

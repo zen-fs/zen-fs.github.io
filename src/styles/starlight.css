@@ -1,0 +1,62 @@
+/** Bridges Starlight's `--sl-color-*` variables onto the theme variables from `theme.css`. */
+
+:root {
+	--hue: 240deg;
+	--fg-light: 80%; /* to match the logo stroke */
+	--bg-light: 16%;
+	--light-step: 8%; /* also to match the logo */
+}
+
+:root[data-theme='light'] {
+	--fg-light: 20%;
+	--bg-light: 92%;
+	--light-step: -6%;
+}
+
+:root,
+::backdrop {
+	--sl-color-white: hsl(0 0 calc(var(--fg-light) + var(--light-step)));
+	--sl-color-gray-1: var(--fg-normal);
+	--sl-color-gray-2: var(--fg-normal);
+	--sl-color-gray-3: hsl(0 0 calc(var(--fg-light) - (var(--light-step) * 2)));
+	--sl-color-gray-4: hsl(var(--hue) 5 calc(var(--fg-light) - (var(--light-step) * 4)));
+	--sl-color-gray-5: var(--bg-accent);
+	--sl-color-gray-6: var(--bg-alt);
+	--sl-color-black: var(--bg-normal);
+
+	--sl-color-accent-low: var(--bg-accent);
+	--sl-color-accent: var(--fg-accent);
+	--sl-color-accent-high: var(--fg-strong);
+
+	--sl-color-text: var(--fg-normal);
+	--sl-color-text-accent: var(--fg-accent);
+	--sl-color-bg: var(--bg-normal);
+	--sl-color-bg-nav: var(--bg-menu);
+	--sl-color-bg-sidebar: var(--bg-menu);
+	--sl-color-bg-inline-code: var(--bg-alt);
+
+	--sl-color-hairline: var(--bg-alt);
+	--sl-color-hairline-light: var(--bg-strong);
+	--sl-color-hairline-shade: var(--bg-menu);
+
+	--sl-color-backdrop-overlay: hsl(from var(--bg-menu) h s l / 66%);
+}
+
+:root {
+	--ec-brdCol: var(--bg-alt);
+	--ec-codeBg: var(--bg-menu);
+	--ec-frm-edBg: var(--bg-menu);
+	--ec-frm-edActTabBg: var(--bg-normal);
+	--ec-frm-edActTabIndTopCol: var(--fg-accent);
+	--ec-frm-edTabBarBg: var(--bg-alt);
+	--ec-frm-trmBg: var(--bg-menu);
+	--ec-frm-trmTtbBg: var(--bg-alt);
+}
+
+::selection {
+	background-color: var(--bg-accent);
+}
+
+.site-title img {
+	height: 1.75rem;
+}

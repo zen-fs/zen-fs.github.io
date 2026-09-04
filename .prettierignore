@@ -1,0 +1,6 @@
+.sources
+dist
+.astro
+node_modules
+package-lock.json
+src/content/docs/*/reference

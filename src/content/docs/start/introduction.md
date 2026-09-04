@@ -1,0 +1,44 @@
+---
+title: What is ZenFS?
+description: An overview of ZenFS, its backends, and where it runs.
+---
+
+ZenFS is a cross-platform library that emulates the [Node.js filesystem API](https://nodejs.org/api/fs.html).
+It works using a system of backends, which are used by ZenFS to store and retrieve data.
+
+ZenFS should cover the full API surface of the latest Node.js version, though complex changes may lag a little bit.
+That includes the callback API, the synchronous API, and `fs/promises`. All with with full type compatibility.
+
+## Backends
+
+ZenFS is modular and easily extended. Rather than being tied to one storage mechanism, every filesystem is
+provided by a backend, and backends are mounted into a single tree. The core includes several:
+
+| Backend        | Description                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `InMemory`     | Stores files in-memory. Cleared when the runtime ends.                                                            |
+| `CopyOnWrite`  | Combines a readable and a writable file system with [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write). |
+| `Fetch`        | Downloads files over HTTP with the `fetch` API.                                                                   |
+| `Port`         | Interacts with a remote over a `MessagePort`-like interface, e.g. a worker.                                       |
+| `Passthrough`  | Uses an existing `node:fs` interface with ZenFS.                                                                  |
+| `SingleBuffer` | Contained within a single buffer. Supports synchronous multi-threaded use with a `SharedArrayBuffer`.             |
+
+Many more are provided as separate packages under `@zenfs`:
+
+- [`@zenfs/archives`](/archives/): `Zip`, `Iso`, `Tar`
+- [`@zenfs/cloud`](/cloud/): `Dropbox`, `GoogleDrive`, `S3Bucket`
+- [`@zenfs/dom`](/dom/): `WebAccess`, `IndexedDB`, `WebStorage`, `XML`
+- [`@zenfs/emscripten`](/emscripten/): `Emscripten`, plus a plugin for Emscripten's own file system API
+
+You can find all of the packages over on [NPM](https://www.npmjs.com/org/zenfs). More backends can be
+defined by separate libraries, see [Writing a backend](/guides/backend-authoring/).
+
+As an added bonus, all ZenFS backends support synchronous operations, and all of the backends
+included with the core are cross-platform.
+
+## Next
+
+- [Installation](/start/installation/) and [Quick start](/start/quick-start/) to get running.
+- [Using ZenFS](/guides/using-zenfs/) for a more in-depth guide.
+- [Configuration](/core/configuration/) for everything `configure` accepts.
+- [Architecture](/core/architecture/) if you want to know how it all fits together.

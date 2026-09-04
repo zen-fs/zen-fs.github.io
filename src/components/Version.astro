@@ -1,0 +1,36 @@
+---
+/*
+ * The versions file is imported directly rather than read through `versions()` from
+ * `scripts/sources.ts`: Astro bundles components into `dist/.prerender/` for the build, so
+ * `import.meta.url` no longer points into this repository and the file would not be found. Vite
+ * resolves this specifier against the source path, which is stable.
+ *
+ * `.sources/versions.json` is written by `npm run sources`, which both `npm run dev` and
+ * `npm run build` run first.
+ */
+import staged from '../../.sources/versions.json';
+import type { Staged } from '../../scripts/sources.ts';
+
+interface Props {
+	/** The package name, as listed in `scripts/sources.ts`. */
+	pkg: string;
+}
+
+const { pkg } = Astro.props;
+const version = (staged as Record<string, Staged>)[pkg];
+---
+
+{
+	version && (
+		<p class="version">
+			Reference generated from <a href={`https://github.com/zen-fs/${version.repo}/tree/${version.ref}`}>{version.version}</a>.
+		</p>
+	)
+}
+
+<style>
+	.version {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+</style>

@@ -6,6 +6,8 @@ on:
     workflow_dispatch:
     workflow_call:
     pull_request:
+    repository_dispatch:
+        types: [docs]
 
 jobs:
     ci:
@@ -23,26 +25,40 @@ jobs:
                 shell: bash
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
 
             - name: Set up Node.js
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v6
               with:
-                  node-version: 22
+                  node-version: latest
+                  cache: npm
+
+            - name: Cache package sources
+              uses: actions/cache@v4
+              with:
+                  path: .sources
+                  key: sources-${{ github.run_id }}
+                  restore-keys: sources-
+
             - name: Install dependencies
-              run: npm install
+              run: npm ci
 
             - name: Formatting
               run: npm run format:check
 
             - name: Build
-              run: npx vite build
+              run: npm run build
+
+            - name: Check links
+              run: npm run check-links
 
             - name: Upload artifact
+              if: github.event_name != 'pull_request'
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: ./build
+                  path: ./dist
 
             - name: Deploy
               id: deploy
+              if: github.event_name != 'pull_request'
               uses: actions/deploy-pages@v4

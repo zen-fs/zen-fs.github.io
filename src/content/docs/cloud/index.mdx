@@ -1,0 +1,25 @@
+---
+title: '@zenfs/cloud'
+description: ZenFS backends for cloud storage providers — Dropbox, Google Drive, and S3.
+---
+
+import Version from '../../../components/Version.astro';
+
+Backends for cloud storage providers.
+
+```sh
+npm install @zenfs/cloud
+```
+
+<Version pkg="cloud" />
+
+## Backends
+
+| Backend       | Provider                |
+| ------------- | ----------------------- |
+| `Dropbox`     | Dropbox                 |
+| `GoogleDrive` | Google Drive            |
+| `S3Bucket`    | Amazon Web Services' S3 |
+
+Each backend takes an authenticated client for its provider.
+See the [reference](/cloud/reference/) for the exact options.

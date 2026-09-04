@@ -1,0 +1,59 @@
+---
+title: ZenFS
+description: A cross-platform library that emulates the Node.js filesystem API, in browsers and everywhere else.
+template: splash
+hero:
+    tagline: The Node.js filesystem API, anywhere. Browsers included.
+    image:
+        dark: ../../assets/logo.svg
+        light: ../../assets/logo-light.svg
+    actions:
+        - text: Get started
+          link: /start/introduction/
+          icon: right-arrow
+        - text: Playground
+          link: /playground/
+          icon: rocket
+          variant: minimal
+        - text: GitHub
+          link: https://github.com/zen-fs/core
+          icon: external
+          variant: minimal
+---
+
+import { Card, CardGrid, Code, LinkCard } from '@astrojs/starlight/components';
+
+<Code
+	lang="js"
+	code={`import { fs } from '@zenfs/core';
+
+fs.writeFileSync('/test.txt', 'You can do this anywhere, including browsers!');
+
+const contents = fs.readFileSync('/test.txt', 'utf-8');`}
+/>
+
+<CardGrid>
+	<Card title="Complete" icon="document">
+		ZenFS emulates the full surface of the latest Node.js `fs` API, including full type compatibility. Plus support for permissions.
+	</Card>
+	<Card title="Modular" icon="puzzle">
+		A module backend system is used. You can mount a zip file, IndexedDB, S3, and memory side by side in one filesystem tree.
+	</Card>
+	<Card title="Performant" icon="rocket">
+		ZenFS runs just as fast as Node.js and is designed with a focus on performance. Every backend supports synchronous operations.
+	</Card>
+	<Card title="Extensible" icon="setting">
+		Eaily add your own custom backends with minmal effort.
+	</Card>
+</CardGrid>
+
+## Packages
+
+<CardGrid>
+	<LinkCard title="@zenfs/core" href="/core/" description="The VFS, configuration, and built-in backends. Includes emulation of Node.js' fs, path, and readline." />
+	<LinkCard title="@zenfs/dom" href="/dom/" description="Backends built on DOM APIs. OPFS, IndexedDB, localStorage, and the DOM itself." />
+	<LinkCard title="@zenfs/archives" href="/archives/" description="Read-only backends for archive files. Currently supports .zip, .iso, and .tar." />
+	<LinkCard title="@zenfs/cloud" href="/cloud/" description="Backends for Dropbox, Google Drive, and S3." />
+	<LinkCard title="@zenfs/emscripten" href="/emscripten/" description="An Emscripten backend, and an Emscripten plugin for the other direction." />
+	<LinkCard title="@zenfs/linux" href="/linux/" description="Best-effort Linux emulation: processes, /dev, /sys, /proc, and kernel modules." />
+</CardGrid>

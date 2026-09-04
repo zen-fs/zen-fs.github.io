@@ -1,0 +1,36 @@
+---
+title: '@zenfs/core'
+description: The core of ZenFS
+---
+
+import Version from '../../../components/Version.astro';
+
+The core package: the virtual file system, configuration, the internal API, and the backends that
+work everywhere.
+
+```sh
+npm install @zenfs/core
+```
+
+<Version pkg="core" />
+
+## Backends
+
+| Backend        | Description                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `InMemory`     | Stores files in-memory. Cleared when the runtime ends.                                                            |
+| `CopyOnWrite`  | Combines a readable and a writable file system with [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write). |
+| `Fetch`        | Downloads files over HTTP with the `fetch` API.                                                                   |
+| `Port`         | Interacts with a remote over a `MessagePort`-like interface, e.g. a worker.                                       |
+| `Passthrough`  | Uses an existing `node:fs` interface with ZenFS.                                                                  |
+| `SingleBuffer` | Contained within a single buffer. Supports synchronous multi-threaded use with a `SharedArrayBuffer`.             |
+
+## Further Reading
+
+- [Configuration](/core/configuration/)
+- [Architecture](/core/architecture/)
+    - [Virtual File System](/core/vfs/)
+    - [Backends](/core/backends/)
+    - [Internal API](/core/internal/)
+    - [Security](/core/security/)
+- [Reference](/core/reference/)

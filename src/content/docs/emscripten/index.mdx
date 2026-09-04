@@ -1,0 +1,18 @@
+---
+title: '@zenfs/emscripten'
+description: A ZenFS backend for Emscripten, and an Emscripten plugin for the other direction.
+---
+
+import Version from '../../../components/Version.astro';
+
+This package works in both directions.
+It has an `Emscripten` backend that exposes an Emscripten file system to ZenFS,
+and a plugin that exposes ZenFS to Emscripten's own file system API.
+
+```sh
+npm install @zenfs/emscripten
+```
+
+<Version pkg="emscripten" />
+
+See the [reference](/emscripten/reference/) for the backend options and the plugin API.
