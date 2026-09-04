@@ -1,6 +1,6 @@
 ---
 title: Writing a backend
-description: How to implement your own backend for ZenFS.
+description: How to implement a backend for ZenFS.
 ---
 
 :::note

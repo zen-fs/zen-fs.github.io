@@ -76,18 +76,14 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: 'Getting started',
-					items: [{ slug: 'start/introduction' }, { slug: 'start/installation' }, { slug: 'start/quick-start' }],
+					items: [{ slug: 'start/introduction' }, { slug: 'start/installation' }, { slug: 'start/quick-start' }, { slug: 'start/usage' }],
 				},
-				{
-					label: 'Guides',
-					items: [{ slug: 'guides/using-zenfs' }, { slug: 'guides/backend-authoring' }, { slug: 'guides/linux-modules' }, { slug: 'guides/testing' }],
-				},
-				group('core', '@zenfs/core', ['configuration', 'vfs', 'backends', 'architecture', 'internal', 'security']),
+				group('core', '@zenfs/core', ['configuration', 'vfs', 'backends', 'architecture', 'internal', 'security', 'testing', 'backend-authoring']),
 				group('dom', '@zenfs/dom'),
 				group('archives', '@zenfs/archives'),
 				group('cloud', '@zenfs/cloud'),
 				group('emscripten', '@zenfs/emscripten'),
-				group('linux', '@zenfs/linux'),
+				group('linux', '@zenfs/linux', ['modules']),
 				{
 					label: 'More',
 					items: [{ slug: 'bundle' }, { label: 'Playground', link: '/playground/', attrs: { target: '_blank' } }],
