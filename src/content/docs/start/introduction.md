@@ -31,7 +31,7 @@ Many more are provided as separate packages under `@zenfs`:
 - [`@zenfs/emscripten`](/emscripten/): `Emscripten`, plus a plugin for Emscripten's own file system API
 
 You can find all of the packages over on [NPM](https://www.npmjs.com/org/zenfs). More backends can be
-defined by separate libraries, see [Writing a backend](/guides/backend-authoring/).
+defined by separate libraries, see [Writing a backend](/core/backend-authoring/).
 
 As an added bonus, all ZenFS backends support synchronous operations, and all of the backends
 included with the core are cross-platform.
@@ -39,6 +39,6 @@ included with the core are cross-platform.
 ## Next
 
 - [Installation](/start/installation/) and [Quick start](/start/quick-start/) to get running.
-- [Using ZenFS](/guides/using-zenfs/) for a more in-depth guide.
+- [Using ZenFS](/start/usage/) for a more in-depth guide.
 - [Configuration](/core/configuration/) for everything `configure` accepts.
 - [Architecture](/core/architecture/) if you want to know how it all fits together.
