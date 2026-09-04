@@ -1,0 +1,46 @@
+---
+/* Adds project links below Starlight's default footer, the way the Astro docs do. */
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { Icon } from '@astrojs/starlight/components';
+
+const links = [
+	{ icon: 'pencil', label: 'Contribute', href: 'https://github.com/zen-fs/.github/blob/main/CONTRIBUTING.md' },
+	{ icon: 'heart', label: 'Sponsor', href: 'https://github.com/sponsors/james-pre' },
+] as const;
+---
+
+<Default><slot /></Default>
+
+<div class="project-links">
+	{
+		links.map(({ icon, label, href }) => (
+			<a href={href}>
+				<Icon name={icon} size="1rem" />
+				{label}
+			</a>
+		))
+	}
+</div>
+
+<style>
+	.project-links {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.5rem;
+		margin-top: 1.5rem;
+		font-size: var(--sl-text-sm);
+	}
+
+	.project-links a {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		text-decoration: none;
+		color: var(--sl-color-gray-3);
+	}
+
+	.project-links a:hover {
+		color: var(--sl-color-white);
+	}
+</style>

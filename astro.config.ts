@@ -69,6 +69,9 @@ export default defineConfig({
 			editLink: {
 				baseUrl: 'https://github.com/zen-fs/zen-fs.github.io/edit/main/',
 			},
+			components: {
+				Footer: './src/components/Footer.astro',
+			},
 			plugins: typedoc,
 			sidebar: [
 				{
