@@ -2,6 +2,7 @@ node_modules
 tmp
 dist
 src/content/docs/*/reference/
+src/content/**/_*.md
 
 .*
 !.gitignore
