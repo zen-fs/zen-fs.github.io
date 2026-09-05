@@ -5,9 +5,6 @@ import { join, resolve } from 'node:path';
 
 const dist = resolve(import.meta.dirname, '../dist');
 
-/** Paths deployed from a different repository onto zenfs.dev, so they are absent from `dist`. */
-const external = ['/playground/'];
-
 const files = globSync('**/*.html', { cwd: dist });
 const pages = new Set(files.map(file => '/' + file.replace(/index\.html$/, '').replace(/\.html$/, '')));
 const assets = new Set(globSync('**/*', { cwd: dist }).map(file => '/' + file));
@@ -22,7 +19,6 @@ for (const file of files) {
 
 		const href = raw.split('#')[0]!.split('?')[0]!;
 		if (!href.startsWith('/')) continue;
-		if (external.some(prefix => href.startsWith(prefix))) continue;
 
 		const slash = href.endsWith('/') ? href : href + '/';
 		if (pages.has(slash) || pages.has(href) || assets.has(href)) continue;

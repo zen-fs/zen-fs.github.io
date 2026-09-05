@@ -53,6 +53,7 @@ export default defineConfig({
 	site: 'https://zenfs.dev',
 	redirects: {
 		'/discord': 'https://discord.com/invite/CxYFAfsV5X',
+		'/playground': 'https://playground.zenfs.dev',
 		'/core/reference/classes/index': '/core/reference/classes/',
 	},
 	integrations: [
@@ -86,7 +87,7 @@ export default defineConfig({
 				group('linux', '@zenfs/linux', ['modules']),
 				{
 					label: 'More',
-					items: [{ slug: 'bundle' }, { label: 'Playground', link: '/playground/', attrs: { target: '_blank' } }],
+					items: [{ slug: 'bundle' }, { label: 'Playground', link: 'https://playground.zenfs.dev', attrs: { target: '_blank' } }],
 				},
 			],
 		}),

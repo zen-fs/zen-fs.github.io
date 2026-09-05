@@ -55,4 +55,4 @@ You can also import it using the named `promises` export or by accessing `fs.pro
 
 - [Using ZenFS](/start/usage/) covers mounting multiple backends, the promises API, and mounting at runtime.
 - [Configuration](/core/configuration/) has many details for `configure`.
-- The [playground](/playground/) lets you try backends and configurations without installing anything.
+- The [playground](https://playground.zenfs.dev) lets you try backends and configurations without installing anything.
