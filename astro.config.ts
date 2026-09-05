@@ -84,7 +84,7 @@ export default defineConfig({
 				group('archives', '@zenfs/archives'),
 				group('cloud', '@zenfs/cloud'),
 				group('emscripten', '@zenfs/emscripten'),
-				group('linux', '@zenfs/linux', ['modules']),
+				group('linux', '@zenfs/linux', ['modules', 'devices']),
 				{
 					label: 'More',
 					items: [{ slug: 'bundle' }, { label: 'Playground', link: 'https://playground.zenfs.dev', attrs: { target: '_blank' } }],
