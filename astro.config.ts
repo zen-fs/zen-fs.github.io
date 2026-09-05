@@ -67,7 +67,7 @@ export default defineConfig({
 				{ icon: 'discord', label: 'Discord', href: 'https://discord.com/invite/CxYFAfsV5X' },
 			],
 			editLink: {
-				baseUrl: 'https://github.com/zen-fs/zen-fs.github.io/edit/main/',
+				baseUrl: 'https://github.com/zen-fs/docs/edit/main/',
 			},
 			components: {
 				Footer: './src/components/Footer.astro',
