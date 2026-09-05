@@ -37,7 +37,7 @@ export class ExampleStore extends Map<number, Uint8Array> implements SyncMapStor
 }
 ```
 
-Keys are allocated by `StoreFS` and should be treated as opaque — an inode and its data live under different keys, so don't assume the set of keys maps to the set of files. `StoreFS` creates the root directory itself once the file system is ready, so a new store starts out empty and valid.
+Keys are allocated by `StoreFS` and should be treated as opaque. An inode and its data live under different keys, so don't assume the set of keys maps to the set of files. `StoreFS` creates the root directory itself once the file system is ready, so a new store starts out empty and valid.
 
 A couple of optional members are worth setting:
 
@@ -111,7 +111,7 @@ They compose with anything, including `IndexFS`. For example, `@zenfs/dom`'s Fil
 
 There are a few things the VFS expects that aren't obvious from the type signatures:
 
-- **`stat('/')` must work**. Rhe VFS assumes the root exists.
+- **`stat('/')` must work**. The VFS assumes the root exists.
 - **`ino` must be unique within the file system.** It is what identifies a file, so using the same one for multiple files puts them all on the same vnode and they'll appear to share content.
 - **Symlinks aren't special.** The VFS creates a regular file, writes the target into it, then changes the mode to `S_IFLNK`. If you preserve modes and file contents you support symlinks.
 - **Metadata comes back through `touch`.** `stat` returns an `InodeLike`, and any change to it — mode, times, ownership, size — arrives as a `touch` call with a partial inode to merge in.
