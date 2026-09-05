@@ -186,7 +186,7 @@ from `flags`. `F` is the only one applied automatically, by a forced unload.
 
 `parameters` and `drivers` are only created once something goes in them, the same as on Linux.
 
-A `add` uevent is sent when the module goes live and a `remove` uevent when it starts unloading,
+An `add` uevent is sent when the module goes live and a `remove` uevent when it starts unloading,
 both with `MODULE` set to the module's name.
 
 `/proc/modules` has a line per module. Linux prints the size in bytes and the load address; neither
